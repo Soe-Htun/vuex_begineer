@@ -1,13 +1,20 @@
 <template>
 <div>
+    <!-- This way is directly call vuex -->
+    <!-- <div 
+        :style="{ color: store.state.colorCode }"
+        class="counter">{{ store.state.counter }} {{ store.getters.changeColor() }}
+    </div> -->
+
     <div 
         :style="{ color: store.state.colorCode }"
-        class="counter">{{ store.state.counter }} {{ store.getters.changeColor() }}</div>
+        class="counter">{{ store.state.counter }} {{ changeColor }}
+    </div>
     
     <div class="counter-squared"> 
         {{ store.state.counter }}
         <sup>2</sup> = 
-        {{ store.getters.counterSquared() }}
+        {{ counterSquared }}
     </div>
     
     <div class="buttons">
@@ -28,7 +35,11 @@
 
 <script setup>
 import { inject } from 'vue'
-// const counter = ref(0)
+import { computed  } from 'vue';
+
+const changeColor = computed(() => store.getters.changeColor())
+
+const counterSquared = computed(() =>  store.getters.counterSquared())
 
 const store = inject('store')
 
