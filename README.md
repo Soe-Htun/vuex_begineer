@@ -41,7 +41,7 @@ If counter value is odd, the color of counter is Red
 ![2](https://user-images.githubusercontent.com/58510288/181218680-21c45cb6-c032-4bd4-8569-a9c617efd7ce.png)
 
 
-```sh
+```
 If you enter name of color within input box, Color will change to this color
 ```
 
