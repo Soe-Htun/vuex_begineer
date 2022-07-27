@@ -2,7 +2,7 @@ import { reactive } from 'vue'
 
 const state = reactive({
     counter: 0,
-    colorCode: 'red',
+    colorCode: 'blue',
     color: ''
 })
 
