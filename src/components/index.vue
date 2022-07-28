@@ -18,8 +18,8 @@
     </div>
     
     <div class="buttons">
-        <button @click="store.actions.decreaseCounter"> - </button>
-        <button @click="store.actions.increaseCounter"> + </button>
+        <button @click="decreaseCounter()"> - </button>
+        <button @click="increaseCounter"> + </button>
     </div>
 
     <div class="color"
@@ -34,14 +34,32 @@
 </template>
 
 <script setup>
-import { inject } from 'vue'
+// ---> This inject is call vuex with local manually
+// import { inject } from 'vue'
+import { useStore } from 'vuex'
 import { computed  } from 'vue';
 
-const changeColor = computed(() => store.getters.changeColor())
+// ---> local vuex
+// const store = inject('store')
 
-const counterSquared = computed(() =>  store.getters.counterSquared())
+// ---> this way is vuex setup local manuall 
+// const changeColor = computed(() => store.getters.changeColor())
+// const counterSquared = computed(() =>  store.getters.counterSquared())
 
-const store = inject('store')
+// ---> global vuex
+const store = useStore();
+
+const changeColor = computed(() => store.getters.changeColor)
+const counterSquared = computed(() =>  store.getters.counterSquared)
+
+function decreaseCounter() {
+    // ---> vuex mutations methods call with commit
+    store.commit("decreaseCounter")
+}
+function increaseCounter() {
+    // ---> vuex mutations methods call with commit
+    store.commit("increaseCounter")
+}
 
 </script>
 

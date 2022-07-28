@@ -1,3 +1,5 @@
+// ---> this way is vuex file call with provide and inject for local 
+
 import { reactive } from 'vue'
 
 const state = reactive({
