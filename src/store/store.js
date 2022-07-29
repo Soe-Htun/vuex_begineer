@@ -9,10 +9,10 @@ const state = reactive({
 })
 
 const getters = {
-    counterSquared() {
+    counterSquared(state) {
         return state.counter * state.counter
     },
-    changeColor() {
+    changeColor(state) {
         if(state.counter % 2 === 0) {
             state.colorCode = 'blue'
         }else {
